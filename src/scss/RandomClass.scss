@@ -1,0 +1,6 @@
+@import "./mixin.scss";
+
+.randomClass {
+    @include redAndWhite;
+    margin: 20px 0;
+}

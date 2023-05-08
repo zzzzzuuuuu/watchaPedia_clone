@@ -1,0 +1,14 @@
+{
+  "movie": [
+    {"ranking": "1", "img": "../assets/image/1.jpg", "title": "가디언즈 오브 갤럭시: Volumn 3", "year": "2023", "country": "미국", "grade": "4.2", "percent": "35%", "audience": "163만명"},
+    {"ranking": "2", "img": "../assets/image/2.jpg", "title": "슈퍼 마리오 브라더스", "year": "2023", "country": "미국", "grade": "3.4", "percent": "31%", "audience": "107만명"},
+    {"ranking": "3", "img": "../assets/image/3.jpg", "title": "극장판 짱구는 못말려: 동물소환 닌자 배꼽수비대", "year": "2022", "country": "일본", "grade": "3.5", "percent": "9.4%", "audience": "34만명"},
+    {"ranking": "4", "img": "../assets/image/4.jpg", "title": "드림", "year": "2022", "country": "한국", "grade": "2.7", "percent": "5,6%", "audience": "96만명"},
+    {"ranking": "5", "img": "../assets/image/5.jpg", "title": "스즈메의 문단속", "year": "2022", "country": "일본", "grade": "3.4", "percent": "4%", "audience": "532만명"},
+    {"ranking": "6", "img": "../assets/image/6.jpg", "title": "분노의 질주: 라이드 오어 다이", "year": "2023", "country": "미국", "grade": "", "percent": "2.8%", "audience": ""},
+    {"ranking": "7", "img": "../assets/image/7.jpg", "title": "존 윅 4", "year": "2023", "country": "미국", "grade": "3.6", "percent": "2.2%%", "audience": "182만명"},
+    {"ranking": "8", "img": "../assets/image/8.jpg", "title": "문재인입니다", "year": "2023", "country": "한국", "grade": "", "percent": "1.4%", "audience": "1,275명"},
+    {"ranking": "9", "img": "../assets/image/9.jpg", "title": "더 퍼스트 슬램덩크", "year": "2022", "country": "일본", "grade": "4.1", "percent": "1.4%", "audience": "463만명"},
+    {"ranking": "10", "img": "../assets/image/10.jpg", "title": "롱디", "year": "2022", "country": "한국", "grade": "", "percent": "1.1%", "audience": "861명"}
+  ]
+}

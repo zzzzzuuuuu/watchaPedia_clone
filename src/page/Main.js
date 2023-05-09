@@ -1,18 +1,20 @@
-import { useState } from "react";
-import Modal from "../components/Modal";
+// import { useState } from "react";
+import Header from "../components/Header";
+// import Modal from "../components/Modal";
 
 const Main = () => {
-  const [isButton, setIsButton] = useState(false);
+  // const [isButton, setIsButton] = useState(false);
   return (
     <>
-      <button
+      <Header />
+      {/* <button
         onClick={() => {
           setIsButton(true);
         }}
       >
         로그인
       </button>
-      {isButton ? <Modal /> : null}
+      {isButton ? <Modal /> : null} */}
     </>
   );
 };

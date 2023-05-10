@@ -95,9 +95,9 @@ const LoginButton = styled.button`
 
 const SignupButton = styled.button`
   margin-top: 15px;
-  width: 88px;
+  width: 83px;
   height: 35px;
-  border: 1px ccc #cfcfcf;
+  border: 1px solid #cfcfcf;
   color: black;
   font-size: 15px;
   font-weight: 600;

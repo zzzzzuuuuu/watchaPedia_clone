@@ -1,5 +1,7 @@
 // import { useState } from "react";
+import BoxOffice from "../components/BoxOffice";
 import Header from "../components/Header";
+import Data from "../page/Data.json";
 // import Modal from "../components/Modal";
 
 const Main = () => {
@@ -15,6 +17,7 @@ const Main = () => {
         로그인
       </button>
       {isButton ? <Modal /> : null} */}
+      <BoxOffice data={Data} />
     </>
   );
 };

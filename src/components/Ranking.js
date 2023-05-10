@@ -1,0 +1,76 @@
+import { styled } from "styled-components";
+
+const Ranking = (props) => {
+  const { ranking, img, title, year, country, grade, percent, audience } =
+    props.data;
+  return (
+    <>
+      <MovieBox>
+        <Poster src={`${process.env.PUBLIC_URL}${img}`}></Poster>
+        <RankNumber>{ranking}</RankNumber>
+        <MovieTitle>{title}</MovieTitle>
+        <MovieInfo>
+          {year} • {country}
+        </MovieInfo>
+        <MovieGrade>평균★{grade}</MovieGrade>
+        <MovieAudience>
+          예매율 {percent} • 누적 관객 {audience}
+        </MovieAudience>
+      </MovieBox>
+    </>
+  );
+};
+
+export default Ranking;
+
+const MovieBox = styled.div`
+  position: relative;
+  margin: 0 8px 0 0;
+  width: 260px;
+  height: 371px;
+  border: 1px solid #eae9e8;
+`;
+
+const Poster = styled.img`
+  position: relative;
+  /* justify-content: center; */
+  width: 260px;
+  margin-bottom: 8px;
+`;
+
+const RankNumber = styled.div`
+  position: absolute;
+  top: 1.5%;
+  left: 2%;
+  width: 25px;
+  height: 25px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 0;
+`;
+
+const MovieTitle = styled.h3`
+  margin: 0;
+  font-size: 17px;
+  color: black;
+`;
+
+const MovieInfo = styled.p`
+  margin: 4px 0 4px 0;
+  font-size: 14px;
+  font-weight: 500;
+`;
+
+const MovieGrade = styled(MovieInfo)`
+  color: #37383f;
+`;
+
+const MovieAudience = styled.p`
+  margin: 0;
+  color: #545765;
+  font-size: 13px;
+  font-weight: 500;
+`;

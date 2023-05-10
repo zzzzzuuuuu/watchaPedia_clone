@@ -7,8 +7,8 @@
     {"ranking": "5", "img": "./image/5.jpg", "title": "스즈메의 문단속", "year": "2022", "country": "일본", "grade": "3.4", "percent": "4%", "audience": "532만명"},
     {"ranking": "6", "img": "./image/6.jpg", "title": "분노의 질주: 라이드 오어 다이", "year": "2023", "country": "미국", "grade": "", "percent": "2.8%", "audience": ""},
     {"ranking": "7", "img": "./image/7.jpg", "title": "존 윅 4", "year": "2023", "country": "미국", "grade": "3.6", "percent": "2.2%%", "audience": "182만명"},
-    {"ranking": "8", "img": "./image/8.jpg", "title": "문재인입니다", "year": "2023", "country": "한국", "grade": "", "percent": "1.4%", "audience": "1,275명"},
+    {"ranking": "8", "img": "./image/8.jpg", "title": "문재인입니다", "year": "2023", "country": "한국", "grade": "2.3", "percent": "1.4%", "audience": "1,275명"},
     {"ranking": "9", "img": "./image/9.jpg", "title": "더 퍼스트 슬램덩크", "year": "2022", "country": "일본", "grade": "4.1", "percent": "1.4%", "audience": "463만명"},
-    {"ranking": "10", "img": "./image/10.jpg", "title": "롱디", "year": "2022", "country": "한국", "grade": "", "percent": "1.1%", "audience": "861명"}
+    {"ranking": "10", "img": "./image/10.jpg", "title": "롱디", "year": "2022", "country": "한국", "grade": "2.4", "percent": "1.1%", "audience": "861명"}
   ]
 }

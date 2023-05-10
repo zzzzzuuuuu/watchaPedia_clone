@@ -45,6 +45,8 @@ const RankNumber = styled.div`
   width: 25px;
   height: 25px;
   background-color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  line-height: 25px;
   color: white;
   border-radius: 5px;
   font-size: 16px;

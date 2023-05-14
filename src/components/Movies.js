@@ -1,23 +1,23 @@
 import { styled } from "styled-components";
-import Ranking from "./Ranking";
+import Movie from "./Movie";
 
-const BoxOffice = (props) => {
-  const { movie } = props.data;
+const Movies = (props) => {
+  const DATA = props.data;
   return (
     <>
       <Title>박스오피스 순위</Title>
       <Body>
-        <Movie>
-          {movie.map((data, index) => (
-            <Ranking data={data} key={index} />
+        <BoxOffice>
+          {DATA.map((data, index) => (
+            <Movie data={data} key={index} />
           ))}
-        </Movie>
+        </BoxOffice>
       </Body>
     </>
   );
 };
 
-export default BoxOffice;
+export default Movies;
 
 const Body = styled.div`
   display: flex;
@@ -31,7 +31,7 @@ const Title = styled.p`
   font-size: 23px;
 `;
 
-const Movie = styled.div`
+const BoxOffice = styled.div`
   display: flex;
   width: 1320px;
   height: 500px;

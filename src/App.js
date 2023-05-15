@@ -44,7 +44,7 @@ function App() {
             <Routes>
 
                 <Route path="/" element={<Main/>}/>
-                <Route path="/detail/:ranking" element={<MovieInfos/>}/>
+                <Route path="/detail/:rank" element={<MovieInfos/>}/>
             </Routes>
             {isButton ? <Modal/> : null}
 

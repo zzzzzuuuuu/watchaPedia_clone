@@ -1,5 +1,5 @@
 import {styled} from "styled-components";
-import {Link, useNavigate, useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const Movie = (props) => {
     const navigate = useNavigate();
@@ -40,7 +40,6 @@ const MovieBox = styled.div`
 
 const Poster = styled.img`
   position: relative;
-  /* justify-content: center; */
   width: 260px;
   margin-bottom: 8px;
 `;

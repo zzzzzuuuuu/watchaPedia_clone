@@ -25,7 +25,6 @@ const Body = styled.div`
 `;
 
 const Title = styled.p`
-  flex: inline-block;
   margin: 40px 0 10px 60px;
   font-weight: 900;
   font-size: 23px;

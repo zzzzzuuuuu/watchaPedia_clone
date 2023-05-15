@@ -4,7 +4,8 @@ import {styled} from "styled-components";
 
 const MovieInfos = (props) => {
   const params = useParams();
-  const movieInfos = DATA[params.ranking - 1];
+  console.log(params);
+  const movieInfos = DATA[params.rank - 1];
   return (
     <>
       <BannerImage></BannerImage>
@@ -18,6 +19,9 @@ const MovieInfos = (props) => {
         <MovieAverage> 평균 ★{movieInfos.average}</MovieAverage>
         <Line style={{marginTop: "55px"}}>─────────────────────────────────────────────</Line>
         <ToGrade>평가하기</ToGrade>
+        <Stars>★★★★★</Stars>
+        <VerticalLine></VerticalLine>
+        <Plus>➕ 보고싶어요　　 　✏️ 코멘트　　 　👀 보는중　　 ••• 더보기</Plus>
       </MovieInfo>
       <Body>
         <MovieAdditionalInfo>
@@ -25,17 +29,9 @@ const MovieInfos = (props) => {
           <MovieBasicInfo>{movieInfos.originalTitle}</MovieBasicInfo>
           <MovieBasicInfo>{movieInfos.year} • {movieInfos.country} • {movieInfos.genre}</MovieBasicInfo>
           <MovieBasicInfo>{movieInfos.runningTime} • {movieInfos.age}</MovieBasicInfo>
-          <MovieBasicInfo>{movieInfos.description}</MovieBasicInfo>
+          <MovieBasicFinalInfo>{movieInfos.description}</MovieBasicFinalInfo>
         </MovieAdditionalInfo>
       </Body>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <p>안녕하세요 디테일 페이지입니다</p>
-      <p>{movieInfos.rank}</p>
     </>
   )
     ;
@@ -93,7 +89,6 @@ const MoviePresentData = styled.span`
 
 const MovieTitle = styled.h1`
   position: absolute;
-  //display: flex;
   color: black;
   top: 1%;
   left: 32%;
@@ -127,17 +122,43 @@ const MovieAverage = styled.h5`
 
 const ToGrade = styled.p`
   position: absolute;
-  top: 66%;
-  left: 36%;
+  top: 64%;
+  left: 37%;
   color: #787878;
   font-size: 13px;
   font-weight: 500;
-  
 `
 
+const Stars = styled.h1`
+  position: absolute;
+  color: #EEEEEE;
+  font-size: 40px;
+  top: 64.2%;
+  left: 31.3%;
+`
+
+const VerticalLine = styled.div`
+  position: absolute;
+  background: #EEEEEE;
+  width: 1px;
+  height: 55px;
+  top: 70%;
+  left: 48%;
+`
+
+const Plus = styled.p`
+  position: absolute;
+  top: 70%;
+  left: 51%;
+  color: #292A32;
+  font-size: 15px;
+  font-weight: 630;
+`
+
+// 기본정보
 const Body = styled.div`
   display: flex;
-  margin: auto;
+  margin-bottom: 50px;
   width: 100%;
   background: #F8F8F8;
 `
@@ -145,8 +166,9 @@ const Body = styled.div`
 const MovieAdditionalInfo = styled.div`
   margin: 0 auto;
   margin-top: 28px;
-  width: 637px;
-  height: 235px;
+  margin-bottom: 50px;
+  width: 800px;
+  height: 330px;
   background-color: white;
   border: 1px solid #E3E3E3;
   border-radius: 5px;
@@ -164,4 +186,9 @@ const MovieBasicInfo = styled.p`
   color: #4D4D4D;
   font-size: 15.5px;
   font-weight: 500;
+`
+
+const MovieBasicFinalInfo = styled(MovieBasicInfo)`
+  margin-top: 12px;
+  line-height: 150%;
 `

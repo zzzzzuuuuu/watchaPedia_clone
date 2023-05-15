@@ -60,9 +60,14 @@ const RankNumber = styled.div`
   padding: 0;
 `;
 
-const MovieTitle = styled.h3`
+const MovieTitle = styled.div`
+  max-width: 260px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   margin: 0;
   font-size: 17px;
+  font-weight: 700;
   color: black;
 `;
 

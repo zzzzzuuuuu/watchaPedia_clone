@@ -2,25 +2,26 @@ import {styled} from "styled-components";
 import {useNavigate} from "react-router-dom";
 
 const Movie = (props) => {
+  console.log(props.data);
     const navigate = useNavigate();
-    const {rank, img, title, year, country, average, percent, audience} =
+    const {id, poster_path, original_title, release_date,  vote_average, vote_count} =
         props.data;
 
     const goMovieInfos = () => {
-        navigate(`/detail/${rank}`);
+        navigate(`/detail/${id}`);
     }
     return (
         <>
             <MovieBox onClick={goMovieInfos}>
-                <Poster src={img}></Poster>
-                <RankNumber>{rank}</RankNumber>
-                <MovieTitle>{title}</MovieTitle>
+                <Poster src={"https://image.tmdb.org/t/p/w500" + poster_path}></Poster>
+                <RankNumber>{props.rank+1}</RankNumber>
+                <MovieTitle>{original_title}</MovieTitle>
                 <MovieInfo>
-                    {year} • {country}
+                    {release_date}
                 </MovieInfo>
-                <MovieGrade>평균★{average}</MovieGrade>
+                <MovieGrade>평균★{vote_average}</MovieGrade>
                 <MovieAudience>
-                    예매율 {percent} • 누적 관객 {audience}
+                    누적 관객 {vote_count}
                 </MovieAudience>
             </MovieBox>
         </>

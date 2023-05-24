@@ -3,7 +3,6 @@ import Movie from "./Movie";
 
 const Movies = (props) => {
   const DATA = props.data;
-  // console.log(DATA);
   return (
     <>
       <Title>박스오피스 순위</Title>

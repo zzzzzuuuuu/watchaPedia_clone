@@ -8,9 +8,9 @@ const Movie = (props) => {
     props.data;
   console.log(props.rank);
 
-  const goMovieInfos = (props) => {
+  const goMovieInfos = () => {
     navigate(`/detail/${id}`, {
-      state: props.rank
+      rank: props.rank
     });
   }
   console.log(props.rank)

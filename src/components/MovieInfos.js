@@ -8,9 +8,11 @@ const MovieInfos = () => {
   const params = useParams();
   console.log(params.id);
   const [movieData, setMovieData] = useState({});
-  console.log(movieData); // {} 로 나옴
-  const { state } = useLocation();
-  console.log(state);
+  // console.log(movieData);
+  const location = useLocation();
+  const {rank} = location.state;
+  console.log(location.state);
+  console.log(rank); // 왜 안돼 이자식들!!!!.....
 
   useEffect(() => {
     const options = {
@@ -38,7 +40,7 @@ const MovieInfos = () => {
       <MovieInfo>
       <MovieImageBackground><MovieImage src={"https://image.tmdb.org/t/p/w500" + poster_path }></MovieImage></MovieImageBackground>
       <MovieTitle>{original_title}</MovieTitle>
-      <MoviePresent>예매 순위 <MoviePresentData>{state}위</MoviePresentData> 누적
+      <MoviePresent>예매 순위 <MoviePresentData>{rank}위</MoviePresentData> 누적
       관객 <MoviePresentData>{vote_count}</MoviePresentData></MoviePresent>
       <MovieOriginalData>{release_date}</MovieOriginalData>
       <Line>─────────────────────────────────────────────</Line>

@@ -4,51 +4,43 @@ import {useNavigate} from "react-router-dom";
 const Movie = (props) => {
   console.log(props.data);
   const navigate = useNavigate();
-  const {id, poster_path, original_title, release_date, vote_average, vote_count} =
-    props.data;
-  console.log(props.rank);
+  const {
+    id, poster_path, original_title, release_date, vote_average, vote_count,
+  } = props.data;
 
   const goMovieInfos = () => {
     navigate(`/detail/${id}`, {
-      rank: props.rank
+      state: {
+        rank: props.rank,
+      },
     });
-  }
-  console.log(props.rank)
-  return (
-    <>
+  };
+  // console.log(props.rank);
+  return (<>
       <MovieBox onClick={goMovieInfos}>
         <Poster src={"https://image.tmdb.org/t/p/w500" + poster_path}></Poster>
         <RankNumber>{props.rank + 1}</RankNumber>
         <MovieTitle>{original_title}</MovieTitle>
-        <MovieInfo>
-          {release_date}
-        </MovieInfo>
+        <MovieInfo>{release_date}</MovieInfo>
         <MovieGrade>평균★{vote_average}</MovieGrade>
-        <MovieAudience>
-          누적 관객 {vote_count}
-        </MovieAudience>
+        <MovieAudience>누적 관객 {vote_count}</MovieAudience>
       </MovieBox>
-    </>
-  );
+    </>);
 };
-
 export default Movie;
-
 const MovieBox = styled.div`
   position: relative;
   margin: 0 8px 0 0;
   width: 260px;
   height: 371px;
-  border: 1px solid #eae9e8;
+  border: 1px solid #EAE9E8;
   cursor: pointer;
 `;
-
 const Poster = styled.img`
   position: relative;
   width: 260px;
   margin-bottom: 8px;
 `;
-
 const RankNumber = styled.div`
   position: absolute;
   top: 1.5%;
@@ -64,7 +56,6 @@ const RankNumber = styled.div`
   font-weight: 700;
   padding: 0;
 `;
-
 const MovieTitle = styled.div`
   max-width: 260px;
   overflow: hidden;
@@ -75,17 +66,14 @@ const MovieTitle = styled.div`
   font-weight: 700;
   color: black;
 `;
-
 const MovieInfo = styled.p`
   margin: 4px 0 4px 0;
   font-size: 14px;
   font-weight: 500;
 `;
-
 const MovieGrade = styled(MovieInfo)`
-  color: #37383f;
+  color: #37383F;
 `;
-
 const MovieAudience = styled.p`
   margin: 0;
   color: #545765;

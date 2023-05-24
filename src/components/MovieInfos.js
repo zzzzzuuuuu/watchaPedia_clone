@@ -1,42 +1,68 @@
-import {DATA} from "../assets/Data";
-import {useParams} from "react-router-dom";
+// import {DATA} from "../assets/Data";
+import {useLocation, useParams} from "react-router-dom";
 import {styled} from "styled-components";
+import axios from "axios";
+import {useEffect, useState} from "react";
 
-const MovieInfos = (props) => {
+const MovieInfos = () => {
   const params = useParams();
-  console.log(params);
-  const movieInfos = DATA[params.rank - 1];
+  console.log(params.id);
+  const [movieData, setMovieData] = useState({});
+  console.log(movieData); // {} 로 나옴
+  const { state } = useLocation();
+  console.log(state);
+
+  useEffect(() => {
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMWFmZTc2ZmFjYzcwYjViZTRjYTNiMzhkNzYyMmI3MyIsInN1YiI6IjY0NjM5MjY4ZWY4YjMyMDE3MmQ2YWUxMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EG5wm03hasTF7T4Z65DUGjck_OiGkTAoCNsxojXdsuM'
+      }
+    };
+
+    axios.get(`https://api.themoviedb.org/3/movie/${params.id}?language=ko-KR`, options)
+      .then(response => {
+        console.log(response);
+        setMovieData(response.data); // 문제의구간 ....
+      })
+      .catch(err => console.error(err));
+  }, []);
+  console.log(movieData); // {}로 나옴
+
+  // const movieInfos = DATA[params.rank - 1];
+  const {poster_path, original_title, vote_count, release_date, genres, vote_average, runtime, tagline} = movieData;
   return (
     <>
       <BannerImage></BannerImage>
       <MovieInfo>
-        <MovieImageBackground><MovieImage src={movieInfos.img}></MovieImage></MovieImageBackground>
-        <MovieTitle>{movieInfos.title}</MovieTitle>
-        <MoviePresent>예매 순위 <MoviePresentData>{movieInfos.rank}위({movieInfos.percent})</MoviePresentData> 누적
-          관객 <MoviePresentData>{movieInfos.audience}명</MoviePresentData></MoviePresent>
-        <MovieOriginalData>{movieInfos.year} • {movieInfos.genre} • {movieInfos.country}</MovieOriginalData>
-        <Line>─────────────────────────────────────────────</Line>
-        <MovieAverage> 평균 ★{movieInfos.average}</MovieAverage>
-        <Line style={{marginTop: "55px"}}>─────────────────────────────────────────────</Line>
-        <ToGrade>평가하기</ToGrade>
-        <Stars>★★★★★</Stars>
-        <VerticalLine></VerticalLine>
+      <MovieImageBackground><MovieImage src={"https://image.tmdb.org/t/p/w500" + poster_path }></MovieImage></MovieImageBackground>
+      <MovieTitle>{original_title}</MovieTitle>
+      <MoviePresent>예매 순위 <MoviePresentData>{state}위</MoviePresentData> 누적
+      관객 <MoviePresentData>{vote_count}</MoviePresentData></MoviePresent>
+      <MovieOriginalData>{release_date}</MovieOriginalData>
+      <Line>─────────────────────────────────────────────</Line>
+      <MovieAverage> 평균 ★{vote_average}</MovieAverage>
+      <Line style={{marginTop: "55px"}}>─────────────────────────────────────────────</Line>
+      <ToGrade>평가하기</ToGrade>
+      <Stars>★★★★★</Stars>
+      <VerticalLine></VerticalLine>
         <Plus>➕ 보고싶어요　　 　✏️ 코멘트　　 　👀 보는중　　 ••• 더보기</Plus>
       </MovieInfo>
       <Body>
-        <MovieAdditionalInfo>
-          <MovieBasic>기본 정보</MovieBasic>
-          <MovieBasicInfo>{movieInfos.originalTitle}</MovieBasicInfo>
-          <MovieBasicInfo>{movieInfos.year} • {movieInfos.country} • {movieInfos.genre}</MovieBasicInfo>
-          <MovieBasicInfo>{movieInfos.runningTime} • {movieInfos.age}</MovieBasicInfo>
-          <MovieBasicFinalInfo>{movieInfos.description}</MovieBasicFinalInfo>
-        </MovieAdditionalInfo>
+      <MovieAdditionalInfo>
+      <MovieBasic>기본 정보</MovieBasic>
+      <MovieBasicInfo>{original_title}</MovieBasicInfo>
+      <MovieBasicInfo>{release_date}</MovieBasicInfo>
+      <MovieBasicInfo>{runtime}분</MovieBasicInfo>
+      <MovieBasicFinalInfo>{tagline}</MovieBasicFinalInfo>
+      </MovieAdditionalInfo>
       </Body>
     </>
   )
     ;
 };
-
+//
 export default MovieInfos;
 
 

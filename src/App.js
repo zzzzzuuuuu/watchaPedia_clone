@@ -42,9 +42,8 @@ function App() {
             <SignupButton>회원가입</SignupButton>
         </HeaderBar>
             <Routes>
-
                 <Route path="/" element={<Main/>}/>
-                <Route path="/detail/:rank" element={<MovieInfos/>}/>
+                <Route path="/detail/:id" element={<MovieInfos/>}/>
             </Routes>
             {isButton ? <Modal/> : null}
 

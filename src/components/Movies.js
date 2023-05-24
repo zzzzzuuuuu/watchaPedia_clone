@@ -9,7 +9,7 @@ const Movies = (props) => {
       <Body>
         <BoxOffice>
           {DATA.map((data, index) => (
-            <Movie data={data} key={index} />
+            <Movie data={data} key={index} rank={index}/>
           ))}
         </BoxOffice>
       </Body>

@@ -2,29 +2,34 @@ import {styled} from "styled-components";
 import {useNavigate} from "react-router-dom";
 
 const Movie = (props) => {
-    const navigate = useNavigate();
-    const {rank, img, title, year, country, average, percent, audience} =
-        props.data;
+  console.log(props.data);
+  const navigate = useNavigate();
+  const {id, poster_path, original_title, release_date, vote_average, vote_count} =
+    props.data;
+  console.log(props.rank);
 
-    const goMovieInfos = () => {
-        navigate(`/detail/${rank}`);
-    }
-    return (
-        <>
-            <MovieBox onClick={goMovieInfos}>
-                <Poster src={img}></Poster>
-                <RankNumber>{rank}</RankNumber>
-                <MovieTitle>{title}</MovieTitle>
-                <MovieInfo>
-                    {year} • {country}
-                </MovieInfo>
-                <MovieGrade>평균★{average}</MovieGrade>
-                <MovieAudience>
-                    예매율 {percent} • 누적 관객 {audience}
-                </MovieAudience>
-            </MovieBox>
-        </>
-    );
+  const goMovieInfos = () => {
+    navigate(`/detail/${id}`, {
+      rank: props.rank
+    });
+  }
+  console.log(props.rank)
+  return (
+    <>
+      <MovieBox onClick={goMovieInfos}>
+        <Poster src={"https://image.tmdb.org/t/p/w500" + poster_path}></Poster>
+        <RankNumber>{props.rank + 1}</RankNumber>
+        <MovieTitle>{original_title}</MovieTitle>
+        <MovieInfo>
+          {release_date}
+        </MovieInfo>
+        <MovieGrade>평균★{vote_average}</MovieGrade>
+        <MovieAudience>
+          누적 관객 {vote_count}
+        </MovieAudience>
+      </MovieBox>
+    </>
+  );
 };
 
 export default Movie;

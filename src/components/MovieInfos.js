@@ -6,13 +6,9 @@ import {useEffect, useState} from "react";
 
 const MovieInfos = () => {
   const params = useParams();
-  console.log(params.id);
   const [movieData, setMovieData] = useState({});
-  console.log(movieData);
   const location = useLocation();
   const {rank} = location.state;
-  // console.log(location.state);
-  // console.log(rank);
 
   useEffect(() => {
     const options = {
@@ -29,8 +25,7 @@ const MovieInfos = () => {
       })
       .catch((err) => console.error(err));
   }, []);
-  console.log(movieData); // {}로 나옴
-  // const movieInfos = DATA[params.rank - 1];
+
   const {
     poster_path, original_title, vote_count, release_date, genres, vote_average, runtime, tagline,
   } = movieData;
@@ -38,9 +33,7 @@ const MovieInfos = () => {
       <BannerImage></BannerImage>
       <MovieInfo>
         <MovieImageBackground>
-          <MovieImage
-            src={"https://image.tmdb.org/t/p/w500" + poster_path}
-          ></MovieImage>
+          <MovieImage src={"https://image.tmdb.org/t/p/w500" + poster_path} />
         </MovieImageBackground>
         <MovieTitle>{original_title}</MovieTitle>
         <MoviePresent>

@@ -15,10 +15,10 @@ const Movie = (props) => {
       },
     });
   };
-  // console.log(props.rank);
+
   return (<>
       <MovieBox onClick={goMovieInfos}>
-        <Poster src={"https://image.tmdb.org/t/p/w500" + poster_path}></Poster>
+        <Poster src={"https://image.tmdb.org/t/p/w500" + poster_path} />
         <RankNumber>{props.rank + 1}</RankNumber>
         <MovieTitle>{original_title}</MovieTitle>
         <MovieInfo>{release_date}</MovieInfo>

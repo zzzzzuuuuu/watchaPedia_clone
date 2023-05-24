@@ -12,7 +12,7 @@ const Main = () => {
       method: 'GET',
       headers: {
         accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMWFmZTc2ZmFjYzcwYjViZTRjYTNiMzhkNzYyMmI3MyIsInN1YiI6IjY0NjM5MjY4ZWY4YjMyMDE3MmQ2YWUxMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EG5wm03hasTF7T4Z65DUGjck_OiGkTAoCNsxojXdsuM'
+        Authorization: 'Bearer ' + process.env.REACT_APP_API_KEY
       }
     };
 

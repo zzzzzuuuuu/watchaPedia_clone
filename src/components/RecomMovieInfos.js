@@ -1,17 +1,11 @@
-import {useLocation, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {styled} from "styled-components";
 import axios from "axios";
 import {useEffect, useState} from "react";
-import Recommend from "./Recommends";
-import {useRecoilValue} from "recoil";
-import {recomAtom} from "../atom/recomAtom";
 
-const MovieInfos = () => {
+const RecomMovieInfos = () => {
   const params = useParams();
   const [movieData, setMovieData] = useState({});
-  const location = useLocation();
-  const {rank} = location.state;
-  const recom = useRecoilValue(recomAtom); // 얘왜 문자열이지.. 배열이어야하는데
 
 
   useEffect(() => {
@@ -30,49 +24,41 @@ const MovieInfos = () => {
   }, []);
 
   const {
-    poster_path, original_title, vote_count, release_date, genres, vote_average, runtime, tagline,
+    poster_path, original_title, release_date, genres, vote_average, runtime, tagline,
   } = movieData;
   return (<>
-      <BannerImage></BannerImage>
-      <MovieInfo>
-        <MovieImageBackground>
-          <MovieImage src={"https://image.tmdb.org/t/p/w500" + poster_path} />
-        </MovieImageBackground>
-        <MovieTitle>{original_title}</MovieTitle>
-        <MoviePresent>
-          예매 순위 <MoviePresentData>{rank + 1}위</MoviePresentData> 누적 관객
-          <MoviePresentData>{vote_count}</MoviePresentData>
-        </MoviePresent>
-        <MovieOriginalData>{release_date} • {genres && genres.map((i) => i.name).join("/")} </MovieOriginalData>
-        <Line>─────────────────────────────────────────────</Line>
-        <MovieAverage> 평균 ★{vote_average}</MovieAverage>
-        <Line style={{marginTop: "55px"}}>
-          ─────────────────────────────────────────────
-        </Line>
-        <ToGrade>평가하기</ToGrade>
-        <Stars>★★★★★</Stars>
-        <VerticalLine></VerticalLine>
-        <Plus>➕ 보고싶어요　　 　✏️ 코멘트　　 　👀 보는중　　 ••• 더보기</Plus>
-      </MovieInfo>
-      <Body>
-        <MovieAdditionalInfo>
-          <MovieBasic>기본 정보</MovieBasic>
-          <MovieBasicInfo>{original_title}</MovieBasicInfo>
-          <MovieBasicInfo>{release_date}</MovieBasicInfo>
-          <MovieBasicInfo>{runtime}분</MovieBasicInfo>
-          <MovieBasicFinalInfo>{tagline}</MovieBasicFinalInfo>
-          <RecomMovieTitle>추천작</RecomMovieTitle>
-          <RecomMovies>
-            {recom.map((data, index) => (
-              <Recommend data={data} key={index} />
-            ))}
-          </RecomMovies>
-        </MovieAdditionalInfo>
-      </Body>
-    </>);
+    <BannerImage />
+    <MovieInfo>
+      <MovieImageBackground>
+        <MovieImage src={"https://image.tmdb.org/t/p/w500" + poster_path} />
+      </MovieImageBackground>
+      <MovieTitle>{original_title}</MovieTitle>
+      <MovieOriginalData>{release_date} • {genres && genres.map((i) => i.name).join("/")} </MovieOriginalData>
+      <Line>─────────────────────────────────────────────</Line>
+      <MovieAverage> 평균 ★{vote_average}</MovieAverage>
+      <Line style={{marginTop: "55px"}}>
+        ─────────────────────────────────────────────
+      </Line>
+      <ToGrade>평가하기</ToGrade>
+      <Stars>★★★★★</Stars>
+      <VerticalLine></VerticalLine>
+      <Plus>➕ 보고싶어요　　 　✏️ 코멘트　　 　👀 보는중　　 ••• 더보기</Plus>
+    </MovieInfo>
+    <Body>
+      <MovieAdditionalInfo>
+        <MovieBasic>기본 정보</MovieBasic>
+        <MovieBasicInfo>{original_title}</MovieBasicInfo>
+        <MovieBasicInfo>{release_date}</MovieBasicInfo>
+        <MovieBasicInfo>{runtime}분</MovieBasicInfo>
+        <MovieBasicFinalInfo>{tagline}</MovieBasicFinalInfo>
+      </MovieAdditionalInfo>
+    </Body>
+  </>);
 };
 
-export default MovieInfos;
+export default RecomMovieInfos;
+
+
 const BannerImage = styled.div`
   position: relative;
   width: 100%;
@@ -88,7 +74,6 @@ const MovieInfo = styled.div`
 `;
 const MovieImageBackground = styled.div`
   position: absolute;
-  //display: flex;
   width: 165px;
   height: 238px;
   background: white;
@@ -101,18 +86,6 @@ const MovieImage = styled.img`
   margin: 4px;
   width: 158px;
   height: 230px;
-`;
-const MoviePresent = styled.p`
-  position: absolute;
-  top: -19%;
-  left: 32%;
-  color: #737075;
-  font-size: 14px;
-  font-family: “돋움“;
-  font-weight: 600;
-`;
-const MoviePresentData = styled.span`
-  color: #CACBCE;
 `;
 const MovieTitle = styled.h1`
   position: absolute;
@@ -186,7 +159,7 @@ const MovieAdditionalInfo = styled.div`
   margin-top: 28px;
   margin-bottom: 50px;
   width: 800px;
-  height: 1700px;
+  height: 400px;
   background-color: white;
   border: 1px solid #E3E3E3;
   border-radius: 5px;
@@ -207,15 +180,3 @@ const MovieBasicFinalInfo = styled(MovieBasicInfo)`
   margin-top: 12px;
   line-height: 150%;
 `;
-
-const RecomMovieTitle = styled(MovieBasic)`
-  margin-top: 50px;
-`
-
-const RecomMovies = styled.div`
-  display: flex;
-  width: 750px;
-  margin: 0 auto;
-  justify-content: space-between;
-  flex-wrap: wrap;
-`

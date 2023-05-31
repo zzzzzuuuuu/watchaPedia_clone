@@ -11,7 +11,7 @@ const MovieInfos = () => {
   const [movieData, setMovieData] = useState({});
   const location = useLocation();
   const {rank} = location.state;
-  const recom = useRecoilValue(recomAtom); // 얘왜 문자열이지.. 배열이어야하는데
+  const recom = useRecoilValue(recomAtom);
 
 
   useEffect(() => {

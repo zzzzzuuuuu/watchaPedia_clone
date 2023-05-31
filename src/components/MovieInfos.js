@@ -1,4 +1,3 @@
-// import {DATA} from “../assets/Data”;
 import {useLocation, useParams} from "react-router-dom";
 import {styled} from "styled-components";
 import axios from "axios";
@@ -13,7 +12,6 @@ const MovieInfos = () => {
   const location = useLocation();
   const {rank} = location.state;
   const recom = useRecoilValue(recomAtom); // 얘왜 문자열이지.. 배열이어야하는데
-  console.log(recom);
 
 
   useEffect(() => {
@@ -26,12 +24,10 @@ const MovieInfos = () => {
     axios
       .get(`https://api.themoviedb.org/3/movie/${params.id}?language=ko-KR`, options)
       .then((response) => {
-        // console.log(response);
         setMovieData(response.data);
       })
       .catch((err) => console.error(err));
   }, []);
-  // console.log(movieData);
 
   const {
     poster_path, original_title, vote_count, release_date, genres, vote_average, runtime, tagline,
@@ -67,7 +63,7 @@ const MovieInfos = () => {
           <MovieBasicFinalInfo>{tagline}</MovieBasicFinalInfo>
           <RecomMovieTitle>추천작</RecomMovieTitle>
           <RecomMovies>
-            {recom.map((data, index) => ( // 소괄호를 써야한대요..
+            {recom.map((data, index) => (
               <Recommend data={data} key={index} />
             ))}
           </RecomMovies>
@@ -75,7 +71,7 @@ const MovieInfos = () => {
       </Body>
     </>);
 };
-//
+
 export default MovieInfos;
 const BannerImage = styled.div`
   position: relative;
@@ -178,7 +174,7 @@ const Plus = styled.p`
   font-size: 15px;
   font-weight: 630;
 `;
-// 기본정보
+
 const Body = styled.div`
   display: flex;
   margin-bottom: 50px;
@@ -219,7 +215,6 @@ const RecomMovieTitle = styled(MovieBasic)`
 const RecomMovies = styled.div`
   display: flex;
   width: 750px;
-  //flex-direction: row;
   margin: 0 auto;
   justify-content: space-between;
   flex-wrap: wrap;

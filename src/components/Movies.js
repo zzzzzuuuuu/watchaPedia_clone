@@ -34,8 +34,6 @@ const BoxOffice = styled.div`
   display: flex;
   width: 1320px;
   height: 500px;
-  /* border-radius: 10px;
-  border: 1px solid #eae9e8; */
   white-space: nowrap;
   overflow-x: scroll;
 `;

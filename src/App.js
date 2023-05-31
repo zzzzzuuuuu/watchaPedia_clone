@@ -7,7 +7,6 @@ import Logo from "./assets/image/icon_logo.png";
 import {BiSearch} from "react-icons/bi";
 import {styled} from "styled-components";
 import Modal from "./components/Modal";
-import Movie from "./components/Movie";
 import RecomMovieInfos from "./components/RecomMovieInfos";
 
 function App() {
@@ -71,7 +70,6 @@ const Img = styled.img`
 const Category = styled.span`
   margin: 25px 10px 13px 10px;
   color: #7e7e7e;
-  /* margin-top: 25px; */
   font-weight: 600;
 `;
 

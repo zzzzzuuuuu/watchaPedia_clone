@@ -18,15 +18,13 @@ const RecomMovieInfos = () => {
     axios
       .get(`https://api.themoviedb.org/3/movie/${params.id}?language=ko-KR`, options)
       .then((response) => {
-        // console.log(response);
         setMovieData(response.data);
       })
       .catch((err) => console.error(err));
   }, []);
-  // console.log(movieData);
 
   const {
-    poster_path, original_title, vote_count, release_date, genres, vote_average, runtime, tagline,
+    poster_path, original_title, release_date, genres, vote_average, runtime, tagline,
   } = movieData;
   return (<>
     <BannerImage />
@@ -57,12 +55,12 @@ const RecomMovieInfos = () => {
     </Body>
   </>);
 };
-//
+
 export default RecomMovieInfos;
 
 
 const BannerImage = styled.div`
-  position: relative;처
+  position: relative;
   width: 100%;
   height: 320px;
   background-color: black;
@@ -149,7 +147,7 @@ const Plus = styled.p`
   font-size: 15px;
   font-weight: 630;
 `;
-// 기본정보
+
 const Body = styled.div`
   display: flex;
   margin-bottom: 50px;

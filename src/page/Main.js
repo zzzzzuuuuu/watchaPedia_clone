@@ -1,5 +1,4 @@
 import Movies from "../components/Movies";
-// import {DATA} from "../assets/Data";
 import axios from "axios";
 import {useState, useEffect} from "react";
 import {useRecoilState} from "recoil";
@@ -7,7 +6,6 @@ import {recomAtom} from "../atom/recomAtom";
 
 const Main = () => {
   const [data, setData] = useState([]);
-  // console.log(data);
 
   const [recomMoive, setRecomMovie] = useRecoilState(recomAtom);
 

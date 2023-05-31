@@ -1,13 +1,10 @@
 import React from 'react';
 import {styled} from "styled-components";
 import {useNavigate} from "react-router-dom";
-// import {useRecoilValue} from "recoil";
-// import {recomAtom} from "../atom/recomAtom";
 
 const Recommends = (props) => {
   const {id, poster_path, original_title, vote_average} = props.data;
   const navigate = useNavigate();
-  // const params = useParams();
   const goRecomMovies = () => {
     navigate(`/recom/${id}`);
   }

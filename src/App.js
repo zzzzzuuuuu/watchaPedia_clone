@@ -1,6 +1,6 @@
 import "./App.css";
 import Main from "./page/Main";
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useNavigate} from "react-router-dom";
 import MovieInfos from "./components/MovieInfos";
 import {useState} from "react";
 import Logo from "./assets/image/icon_logo.png";
@@ -11,11 +11,15 @@ import RecomMovieInfos from "./components/RecomMovieInfos";
 
 function App() {
   const [isButton, setIsButton] = useState(false);
+  const navigate = useNavigate();
+  const goMain = () => {
+    navigate(`/`);
+  }
 
   return (
     <>
       <HeaderBar>
-        <Img src={Logo}></Img>
+        <Img src={Logo} onClick={goMain}></Img>
         <Category style={{color: "black"}}>영화</Category>
         <Category>TV</Category>
         <Category>책</Category>
@@ -65,6 +69,7 @@ const HeaderBar = styled.div`
 const Img = styled.img`
   width: 150px;
   margin: 10px 15px 0 15px;
+  cursor: pointer;
 `;
 
 const Category = styled.span`
@@ -99,6 +104,7 @@ const LoginButton = styled.button`
   background: white;
   font-size: 15px;
   font-weight: 600;
+  cursor: pointer;
 `;
 
 const SignupButton = styled.button`

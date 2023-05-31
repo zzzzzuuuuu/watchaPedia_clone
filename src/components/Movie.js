@@ -2,7 +2,7 @@ import {styled} from "styled-components";
 import {useNavigate} from "react-router-dom";
 
 const Movie = (props) => {
-  console.log(props.data);
+  // console.log(props.data);
   const navigate = useNavigate();
   const {
     id, poster_path, original_title, release_date, vote_average, vote_count,
